@@ -1,0 +1,30 @@
+name: CPack
+
+on:
+    push:
+     branches: [master]
+    pull_request:
+     branches: [master]
+          
+jobs: 
+ build_Linux:   
+  
+  runs-on: ubuntu-latest
+
+  steps: 
+  - uses: actions/checkout@v3
+
+  - name: Configurate
+    run: |
+        rm -rf ${{github.workspace}}/_build
+        mkdir _build && cd _build
+        cmake .. -DBUILD_TESTS=ON -DCMAKE_CXX_FLAGS='--coverage'
+        cmake --build .
+        cmake --build . --target package
+        cmake --build . --target package_source
+
+  - name: Make a release
+    uses: ncipollo/release-action@v1.10.0
+    with:
+      artifacts: "build/*.deb"
+      token: ${{ secrets.GITHUB_TOKEN }}
