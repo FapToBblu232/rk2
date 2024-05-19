@@ -24,6 +24,9 @@ jobs:
       cmake .. -DBUILD_TESTS=ON -DCMAKE_CXX_FLAGS='--coverage'
       cmake --build .
 
+  - name: my_exe
+    run: ${{github.workspace}}/_build/my_exe
+
   - name: Run tests
     run: _build/my_test
     
