@@ -14,11 +14,18 @@ jobs:
   steps: 
   - uses: actions/checkout@v3
 
+
+  - name: putting gtest
+    run: git clone https://github.com/google/googletest.git third-party/gtest
+  
   - name: Configurate
     run: |
-      rm -rf _build
-      mkdir _build
-      cmake ${{github.workspace}} -B ${{github.workspace}}/_build -D PRINT_VERSION=${GITHUB_REF_NAME#v}
+        rm -rf ${{github.workspace}}/_build
+        mkdir _build && cd _build
+        cmake .. -DBUILD_TESTS=OFF
+        cmake --build .
+        cmake --build . --target package
+        cmake --build . --target package_source
 
   - name: Make a release
     uses: ncipollo/release-action@v1.10.0
