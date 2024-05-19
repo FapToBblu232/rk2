@@ -1,0 +1,2 @@
+/usr/bin/ar qc libFactory.a CMakeFiles/Factory.dir/source/ConceptualExample.cpp.o CMakeFiles/Factory.dir/source/Program.cpp.o CMakeFiles/Factory.dir/source/Vehicles.cpp.o
+/usr/bin/ranlib libFactory.a
