@@ -16,7 +16,11 @@ jobs:
   
   - name: Configurate
     run: |
+        rm -rf ${{github.workspace}}/_build
+        mkdir _build
         cd _build
+        cmake ..
+        cpack
         cmake --build .
         cmake --build . --target package
         cmake --build build --target package_source
@@ -26,4 +30,3 @@ jobs:
     with:
       artifacts: "build/*.deb"
       token: ${{ secrets.GITHUB_TOKEN }}
-      
