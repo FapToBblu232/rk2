@@ -1,0 +1,32 @@
+name: Actions
+
+on:
+ push:
+  branches: [master]
+ pull_request:
+  branches: [master]
+
+jobs: 
+ build_Linux:
+
+  runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v4
+
+  - name: putting gtest
+    run: git clone https://github.com/google/googletest.git third-party/gtest
+  
+  - name: Configurate
+    run: |
+      rm -rf ${{github.workspace}}/_build
+      mkdir _build && cd _build
+      cmake .. -DBUILD_TESTS=ON
+      cmake --build .
+
+  - name: my_exe
+    run: ${{github.workspace}}/_build/my_exe
+
+  - name: Run tests
+    run: _build/my_test
+    
