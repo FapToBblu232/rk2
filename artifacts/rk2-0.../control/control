@@ -1,0 +1,10 @@
+Architecture: all
+Description: Rk2
+ MB it works
+Maintainer: FarToBblu232
+Package: rk2-dev
+Priority: optional
+Section: devel
+Version: 0...-1
+Installed-Size: 5200
+
