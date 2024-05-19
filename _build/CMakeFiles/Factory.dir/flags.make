@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/fartovii/workspace/projects/rk2/Factory
+CXX_INCLUDES = -I/home/fartovii/workspace/projects/rk2/source
 
 CXX_FLAGS = -std=gnu++20
 

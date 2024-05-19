@@ -14,13 +14,11 @@ set(Sources
 )
 
 set(Sources_test
-    source/ConceptualExample.cpp
     tests/tests.cpp
-    source/Vehicles.cpp
 )
 
 add_library(Factory STATIC ${Sources})
-target_include_directories(Factory PUBLIC Factory)
+target_include_directories(Factory PUBLIC source)
 
 add_executable(my_exe ${Sources})
 

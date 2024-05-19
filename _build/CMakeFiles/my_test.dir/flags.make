@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/fartovii/workspace/projects/rk2/Factory -isystem /home/fartovii/workspace/projects/rk2/third-party/gtest/googletest/include -isystem /home/fartovii/workspace/projects/rk2/third-party/gtest/googletest
+CXX_INCLUDES = -I/home/fartovii/workspace/projects/rk2/source -isystem /home/fartovii/workspace/projects/rk2/third-party/gtest/googletest/include -isystem /home/fartovii/workspace/projects/rk2/third-party/gtest/googletest
 
 CXX_FLAGS = -std=gnu++20
 

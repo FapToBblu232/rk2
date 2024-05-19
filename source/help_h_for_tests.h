@@ -15,6 +15,8 @@ class Vehicle
 {
 public:
     std::string m_model;
+
+protected:
     std::string m_engine;
     std::string m_transmission;
     std::string m_body;
@@ -191,30 +193,6 @@ public:
         return std::make_shared<MitsubishiPajero>();
     }
 };
-
-// ===========================================================================
-
-void test_vehicles() {
-
-    std::list<std::shared_ptr<IVehicleFactory>> factories {
-        std::make_shared<FordFactory>(),
-        std::make_shared<MitsubishiFactory>() 
-    };
-
-    for (std::shared_ptr<IVehicleFactory> factory : factories) {
-
-        std::shared_ptr<Vehicle> vehicle;
-
-        vehicle = factory->createEconomyCar();
-        vehicle->showInfo();   
-
-        vehicle = factory->createRacingCar();
-        vehicle->showInfo();
-
-        vehicle = factory->createSUV();
-        vehicle->showInfo();
-    }
-}
 
 // ===========================================================================
 // End-of-File
