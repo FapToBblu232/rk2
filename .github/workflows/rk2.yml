@@ -2,9 +2,9 @@ name: Actions
 
 on:
  push:
-  branches: [just_check]
+  branches: [arts]
  pull_request:
-  branches: [just_check]
+  branches: [arts]
 
 jobs: 
  build_Linux:
