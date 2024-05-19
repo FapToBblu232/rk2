@@ -1,0 +1,29 @@
+name: CPack
+
+on:
+    workflow_dispatch:
+    push:
+      tags:
+        - v*.*.*
+          
+jobs: 
+ build_Linux:   
+  
+  runs-on: ubuntu-latest
+
+  steps: 
+  - uses: actions/checkout@v3
+  
+  - name: Configurate
+    run: |
+        cd _build
+        cmake --build .
+        cmake --build . --target package
+        cmake --build build --target package_source
+
+  - name: Make a release
+    uses: ncipollo/release-action@v1.10.0
+    with:
+      artifacts: "build/*.deb"
+      token: ${{ secrets.GITHUB_TOKEN }}
+      
