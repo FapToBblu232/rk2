@@ -7,6 +7,13 @@ option(BUILD_TESTS "Build tests" ON)
 
 project(Factory)
 
+set(PRINT_VERSION_PATCH 0)
+set(PRINT_VERSION_MINOR 1)
+set(PRINT_VERSION_MAJOR 0)
+set(PRINT_VERSION_TWEAK 0)
+set(PRINT_VERSION ${PRINT_VERSION_MAJOR}.\${PRINT_VERSION_MINOR}.\${PRINT_VERSION_PATCH}.\${PRINT_VERSION_TWEAK})
+set(PRINT_VERSION_STRING "v\${PRINT_VERSION}")
+
 set(Sources
     source/ConceptualExample.cpp
     source/Program.cpp
@@ -32,3 +39,10 @@ if(BUILD_TESTS)
     )
     add_test(NAME my_test COMMAND my_test)
 endif()
+
+
+install(TARGETS my_exe
+RUNTIME DESTINATION bin
+)
+
+include(CPackConfig.cmake)
