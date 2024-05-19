@@ -25,7 +25,6 @@ jobs:
         cmake .. -DBUILD_TESTS=OFF
         cmake --build .
         cmake --build . --target package
-        cmake --build . --target package_source
 
   - name: Make a release
     uses: ncipollo/release-action@v1.10.0

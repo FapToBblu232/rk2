@@ -53,7 +53,7 @@ set(CPACK_RESOURCE_FILE_README "/usr/share/cmake-3.22/Templates/CPack.GenericDes
 set(CPACK_RESOURCE_FILE_WELCOME "/usr/share/cmake-3.22/Templates/CPack.GenericWelcome.txt")
 set(CPACK_SET_DESTDIR "OFF")
 set(CPACK_SOURCE_GENERATOR "TGZ;ZIP")
-set(CPACK_SOURCE_INSTALLED_DIRECTORIES "/home/fartovii/workspace/projects/rk2,/")
+set(CPACK_SOURCE_INSTALLED_DIRECTORIES "/home/fartovii/workspace/projects/rk2/.")
 set(CPACK_SOURCE_OUTPUT_CONFIG_FILE "/home/fartovii/workspace/projects/rk2/_build/CPackSourceConfig.cmake")
 set(CPACK_SYSTEM_NAME "Linux")
 set(CPACK_THREADS "1")

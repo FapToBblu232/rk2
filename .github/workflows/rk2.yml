@@ -21,7 +21,7 @@ jobs:
     run: |
       rm -rf ${{github.workspace}}/_build
       mkdir _build && cd _build
-      cmake .. -DBUILD_TESTS=ON -DCMAKE_CXX_FLAGS='--coverage'
+      cmake .. -DBUILD_TESTS=ON
       cmake --build .
 
   - name: my_exe
