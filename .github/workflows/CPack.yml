@@ -2,29 +2,27 @@ name: CPack
 
 on:
     push:
-     branches: [master]
-    pull_request:
-     branches: [master]
+      tags:
+        - v*.*.*
           
 jobs: 
- build_Linux:   
+ build_packages_Linux:   
   
   runs-on: ubuntu-latest
 
+  permissions:
+    contents: write
+
   steps: 
   - uses: actions/checkout@v3
-
-
-  - name: putting gtest
-    run: git clone https://github.com/google/googletest.git third-party/gtest
   
   - name: Configurate
     run: |
-        rm -rf ${{github.workspace}}/_build
-        mkdir _build && cd _build
-        cmake .. -DBUILD_TESTS=OFF
+        cmake ${{github.workspace}} -B ${{github.workspace}}/build -D PRINT_VERSION=${GITHUB_REF_NAME#v}
+        cd _build
         cmake --build .
         cmake --build . --target package
+        cmake --build build --target package_source
 
   - name: Make a release
     uses: ncipollo/release-action@v1.10.0
