@@ -52,4 +52,4 @@ jobs:
     uses: actions/upload-artifact@v4
     with:
         name: My_art
-        path: _build/Factory
+        path: ${{github.workspace}}/_build/Factory
