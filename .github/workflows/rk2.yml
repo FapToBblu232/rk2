@@ -22,11 +22,18 @@ jobs:
       rm -rf ${{github.workspace}}/_build
       mkdir _build && cd _build
       cmake .. -DBUILD_TESTS=ON
-      cmake --build .
+      cmake --build . --target package
+      cmake --build . --target package_source
 
   - name: my_exe
     run: ${{github.workspace}}/_build/my_exe
 
   - name: Run tests
     run: _build/my_test
-    
+
+  - name: Make a release
+    uses: ncipollo/release-action@v1.10.0
+    with:
+      artifacts: "build/*.deb"
+      tag: 1.0.6
+      token: ${{ secrets.GITHUB_TOKEN }}
