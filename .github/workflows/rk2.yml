@@ -30,6 +30,12 @@ jobs:
   - name: Run tests
     run: _build/my_test
 
+  - name: package
+    run: cmake --build ${{github.workspace}}/_build -target package
+
+  - name: package_source
+    run: cmake --build ${{github.workspace}}/_build -target package_source
+
   #- name: Make a release
     #uses: ncipollo/release-action@v1.10.0
     #with:
