@@ -1,34 +1,34 @@
-name: CPack
+#name: CPack
 
-on:
-    push:
-      branches: [main]
-      tags:
-        - v*.*.*
-    pull_request:
-      branches: [main]
+#on:
+    #push:
+      #branches: [main]
+      #tags:
+        #- v*.*.*
+   # pull_request:
+      #branches: [main]
           
-jobs: 
- build_packages_Linux:   
+#jobs: 
+# build_packages_Linux:   
   
-  runs-on: ubuntu-latest
+#  runs-on: ubuntu-latest
 
-  permissions:
-    contents: write
+ # permissions:
+ #   contents: write
 
-  steps: 
-  - uses: actions/checkout@v3
+ # steps: 
+ # - uses: actions/checkout@v3
   
-  - name: Configurate
-    run: |
-        cmake ${{github.workspace}} -B ${{github.workspace}}/build -D PRINT_VERSION=${GITHUB_REF_NAME#v}
-        cd _build
-        cmake --build .
-        cmake --build . --target package
-        cmake --build build --target package_source
+ # - name: Configurate
+  #  run: |
+    #    cmake ${{github.workspace}} -B ${{github.workspace}}/build -D PRINT_VERSION=${GITHUB_REF_NAME#v}
+     #   cd _build
+     #   cmake --build .
+     #   cmake --build . --target package
+     #   cmake --build build --target package_source
 
-  - name: Make a release
-    uses: ncipollo/release-action@v1.10.0
-    with:
-      artifacts: "build/*.deb"
-      token: ${{ secrets.GITHUB_TOKEN }}
+ # - name: Make a release
+ #   uses: ncipollo/release-action@v1.10.0
+ #   with:
+   #   artifacts: "build/*.deb"
+    #  token: ${{ secrets.GITHUB_TOKEN }}
