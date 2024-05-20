@@ -36,9 +36,9 @@ jobs:
   - name: package_source
     run: cmake --build ${{github.workspace}}/_build --target package_source
 
-  #- name: Make a release
-    #uses: ncipollo/release-action@v1.10.0
-    #with:
-      #artifacts: "build/*.deb"
-      #tag: 1.0.6
-      #token: ${{ secrets.GITHUB_TOKEN }}
+  - name: Make a release
+    uses: ncipollo/release-action@v1.10.0
+    with:
+      artifacts: "build/*.deb"
+      tag: 1.0.6
+      token: ${{ secrets.GITHUB_TOKEN }}
